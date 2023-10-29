@@ -1,0 +1,3 @@
+/Users/home/CLionProjects/AnoProjects/eModules/prototypes/firstblink/cmake-build-debug/CMakeFiles/firstblink.elf.dir
+/Users/home/CLionProjects/AnoProjects/eModules/prototypes/firstblink/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/home/CLionProjects/AnoProjects/eModules/prototypes/firstblink/cmake-build-debug/CMakeFiles/rebuild_cache.dir
