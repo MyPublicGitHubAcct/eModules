@@ -55,6 +55,7 @@ generated.*.ld
 nbproject/
 .idea/
 .project
+**/cmake-build-debug/
 
 # mac stuff
 .DS_Store
