@@ -56,6 +56,8 @@ static void MX_USART2_UART_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
+const int TIME = 1000000;
+
 /* USER CODE END 0 */
 
 /**
@@ -102,8 +104,24 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-      LL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
-      LL_mDelay(1000); // delay 1 sec, or LED will turn on/off every 1 sec
+
+    /** version 1 - using LL functions */
+//    LL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
+//    LL_mDelay(1000); // delay 1 sec, or LED will turn on/off every 1 sec
+
+    /** version 2 -
+     * closer to bare metal using internals of LL functions +
+     * macros and defines for this processor family */
+//    uint32_t odr = READ_REG(LD2_GPIO_Port->ODR);
+//    WRITE_REG(LD2_GPIO_Port->BSRR, ((odr & LD2_Pin) << 16u) | (~odr & LD2_Pin));
+//      for(int i=0; i<TIME; i++){}
+
+    /** version 3 -
+     * closer still to bare metal using internals of LL functions +
+     * macros and defines for this processor family */
+    uint32_t odr = READ_REG(GPIOA->ODR);
+    WRITE_REG(GPIOA->BSRR, ((odr & LD2_Pin) << 16u) | (~odr & LD2_Pin));
+    for(int i=0; i<TIME; i++){}
   }
   /* USER CODE END 3 */
 }
