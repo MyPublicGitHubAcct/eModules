@@ -2,7 +2,9 @@
 
 ## Sources
 
-[link 1](https://kleinembedded.com/stm32-without-cubeide-part-1-the-bare-necessities/).
+- [link 1](https://kleinembedded.com/stm32-without-cubeide-part-1-the-bare-necessities/).
+- [OpenOCD](https://openocd.org/doc/html/General-Commands.html)
+
 
 ## Building and flashing
 
@@ -25,9 +27,5 @@ Use OpenOCD and the built-in ST-LINK programmer on the nucleo board to flash the
 
 ```zsh
 cd build
-openocd -f interface/stlink.cfg -f target/stm32f4x.cfg -c "program secondblink.elf verify reset exit"
+openocd -f interface/stlink-v2-1.cfg -f target/stm32f4x.cfg -c "program secondblink.elf verify reset exit"
 ```
-
-
-
-
