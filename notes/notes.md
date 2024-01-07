@@ -62,3 +62,32 @@ You now have OpenOCD installed to /opt/homebrew/bin/openocd. Configure that path
 
 ?
 
+## ------------------------------------------------------------------------
+## Structure of repos
+## ------------------------------------------------------------------------
+
+### Ano_Releases (main public repo)
+
+- binary files that are installed on modules
+- webapps used to generate content loaded on modules
+- open-sourced code
+- manuals (in pdf)
+
+### stfiles (public repo)
+
+- files (all open source) from st, used to compile the binaries
+- files (all open source) from other developers
+
+### eModules (private repo)
+
+- module code not publicly released (under dev or not yet profitable)
+- module code publicly released (source of Ano_Releases)
+- learning information
+- notes (to self - this file is one of them)
+- prototypes and tests of code run on MCU's
+
+### anolib (private repo)
+
+- base or commonly used dsp, ui, etc. in modules
+- test cases for the code in this library
+- python used to define algos
