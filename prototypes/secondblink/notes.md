@@ -112,6 +112,18 @@ flash:
     openocd -f interface/stlink-v2-1.cfg -f target/stm32f4x.cfg -c "program build/secondblink.elf verify reset"
 ```
 
+### Github Actions
+
+To cause a build, update and push a new tag.
+
+```zsh
+git add --all
+git commit -m "<text>"
+git tag <tagname>
+git push origin --tags
+```
+
+
 ### Notes for above
 
 #### Note 1
