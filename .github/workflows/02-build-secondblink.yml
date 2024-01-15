@@ -11,27 +11,27 @@ jobs:
     runs-on: ${{ matrix.os.runner }}
 
     strategy:
-      fail-fast: false
+      # fail-fast: false
       matrix:
         os:
           - runner: ubuntu-latest
           - name: ubuntu
-        gcc: ['7-2017-q4', 'latest']
+        # gcc: ['7-2017-q4', 'latest']
 
     steps:
 
       - name: Feedback to confirm this has begun
         run: echo 'This has begun'
 
-      - name: Update apt
-        if: startsWith(matrix.os.runner, 'ubuntu')
-        shell: bash
-        run: sudo apt-get update
+      # - name: Update apt
+      #   if: startsWith(matrix.os.runner, 'ubuntu')
+      #   shell: bash
+      #   run: sudo apt-get update
 
-      - name: Install make
-        if: startsWith(matrix.os.runner, 'ubuntu')
-        shell: bash
-        run: sudo apt install -y make && make -v
+      # - name: Install make
+      #   if: startsWith(matrix.os.runner, 'ubuntu')
+      #   shell: bash
+      #   run: sudo apt install -y make && make -v
 
       # - name: Install GNU Arm Embedded Toolchain - ${{ matrix.gcc }}
       #   uses: carlosperate/arm-none-eabi-gcc-action@v1
