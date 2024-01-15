@@ -1,0 +1,45 @@
+name: 02-build-secondblink
+
+on:
+  push:
+    tags:
+      - "*"
+
+jobs:
+  build:
+    name: ${{ matrix.config.name }}
+    runs-on: ${{ matrix.os.runner }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - runner: ubuntu-latest
+          - name: ubuntu
+
+    steps:
+      - name: Feedback to confirm this has begun
+        run: echo 'This has begun'
+
+      - name: Update apt
+        if: startsWith(matrix.os.runner, 'ubuntu')
+        shell: bash
+        run: sudo apt-get update
+
+      - name: Install make
+        if: startsWith(matrix.os.runner, 'ubuntu')
+        shell: bash
+        run: sudo apt install -y make && make -v
+
+      - name: Install GNU Arm Embedded Toolchain
+        uses: actions/checkout@v2
+        uses: marvinschopf/install-gcc-arm-none-eabi@main
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          respository: ${{ github.repository }}
+
+      - name: Build
+        shell: bash
+        run: cd prototypes/secondblink && make
