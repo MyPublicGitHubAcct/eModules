@@ -37,14 +37,14 @@ jobs:
         uses: carlosperate/arm-none-eabi-gcc-action@v1
         with:
           release: ${{ matrix.gcc }}
-        - run: arm-none-eabi-gcc --version
+        run: arm-none-eabi-gcc --version
 
-      - name: To access a step output, you need to provide an `id`
-        uses: carlosperate/arm-none-eabi-gcc-action@v1
-        id: arm-none-eabi-gcc-action
+      # - name: To access a step output, you need to provide an `id`
+      #   uses: carlosperate/arm-none-eabi-gcc-action@v1
+      #   id: arm-none-eabi-gcc-action
 
-      - name: The `path` to the toolchain executables can then be obtained as an output
-        run: echo "The output path is ${{ steps.arm-none-eabi-gcc-action.outputs.path }}"
+      # - name: The `path` to the toolchain executables can then be obtained as an output
+      #   run: echo "The output path is ${{ steps.arm-none-eabi-gcc-action.outputs.path }}"
 
       # - name: Checkout code
       #   uses: actions/checkout@v4
