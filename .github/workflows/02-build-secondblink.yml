@@ -15,7 +15,7 @@ jobs:
       matrix:
         os:
           - runner: ubuntu-latest
-          - name: ubuntu
+            name: ubuntu
         # gcc: ['7-2017-q4', 'latest']
 
     steps:
