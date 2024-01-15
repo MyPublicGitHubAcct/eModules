@@ -37,6 +37,8 @@ jobs:
         uses: carlosperate/arm-none-eabi-gcc-action@v1
         with:
           release: ${{ matrix.gcc }}
+
+      - name: Output the version of arm toolchain installed
         run: arm-none-eabi-gcc --version
 
       # - name: To access a step output, you need to provide an `id`
