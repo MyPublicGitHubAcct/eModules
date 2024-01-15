@@ -11,17 +11,14 @@ jobs:
     runs-on: ${{ matrix.os.runner }}
 
     strategy:
-      # fail-fast: false
+      fail-fast: false
       matrix:
         os:
           - runner: ubuntu-latest
             name: ubuntu
-        # gcc: ['7-2017-q4', 'latest']
+        gcc: ['latest']
 
     steps:
-
-      - name: Feedback to confirm this has begun
-        run: echo 'This has begun'
 
       - name: Update apt
         if: startsWith(matrix.os.runner, 'ubuntu')
@@ -51,7 +48,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          respository: ${{ github.repository }}
+          repository: ${{ github.repository }}
 
       - name: Build
         shell: bash
