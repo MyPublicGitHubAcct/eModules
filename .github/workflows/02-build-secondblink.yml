@@ -41,18 +41,18 @@ jobs:
       - name: Output the version of arm toolchain installed
         run: arm-none-eabi-gcc --version
 
-      # - name: To access a step output, you need to provide an `id`
-      #   uses: carlosperate/arm-none-eabi-gcc-action@v1
-      #   id: arm-none-eabi-gcc-action
+      - name: To access a step output, you need to provide an `id`
+        uses: carlosperate/arm-none-eabi-gcc-action@v1
+        id: arm-none-eabi-gcc-action
 
-      # - name: The `path` to the toolchain executables can then be obtained as an output
-      #   run: echo "The output path is ${{ steps.arm-none-eabi-gcc-action.outputs.path }}"
+      - name: The `path` to the toolchain executables can then be obtained as an output
+        run: echo "The output path is ${{ steps.arm-none-eabi-gcc-action.outputs.path }}"
 
-      # - name: Checkout code
-      #   uses: actions/checkout@v4
-      #   with:
-      #     respository: ${{ github.repository }}
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          respository: ${{ github.repository }}
 
-      # - name: Build
-      #   shell: bash
-      #   run: cd prototypes/secondblink && make
+      - name: Build
+        shell: bash
+        run: cd prototypes/secondblink && make
