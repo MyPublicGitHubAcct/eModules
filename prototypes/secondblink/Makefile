@@ -185,6 +185,12 @@ $(BUILD_DIR):
 	mkdir $@		
 
 #######################################
+# ADDED flash the MCU
+#######################################
+flash:
+	openocd -f interface/stlink-v2-1.cfg -f target/stm32f4x.cfg -c "program build/secondblink.elf verify reset"
+
+#######################################
 # clean up
 #######################################
 clean:
