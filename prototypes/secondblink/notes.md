@@ -91,12 +91,31 @@ Others
 
 * __info registers__ - show register values
 
-#### Drivers
+#### Folder structure
 
-In main, the loop will call something to make things happen...
+Note: Private development directories, denoted by the suffix "prv", are related to the top level directories shown below. Some of the items in these private folders will be copied into the directories below once they are ready for public consumption.
 
-TODO - describe this and do poc.
-
+> __ano_lib__ - common files & files from ST used in the builds
+  > __algos__ -
+  > __dsp__ -
+  > __fft__ -
+  > __linker_scripts__ -
+  > __midi__ -
+  > __programming__ -
+  > __system__ -
+  > __test__ -
+  > __third_party__ - HAL, CMSIS, etc. files from ST
+  > __tools__ -
+  > __ui__ -
+  > __utils__ -
+  > ____ -
+> __<module name>__ - contains the name.c file & those it runs
+  > __bootloader__ - bootloader unique to this module
+  > __data__ - binaries included in what is stored on the module
+  > __drivers__ - drivers unique to this module
+  > __hardware_design__ - KiCad files, etc.
+  > __python__ - scripts used to do pre-build things for this module
+  > __tests__ - test scripts
 
 ### MakeFile customizations
 
@@ -123,7 +142,6 @@ git tag <tagname>
 git push origin --tags
 ```
 
-
 ### Notes for above
 
 #### Note 1
@@ -141,4 +159,11 @@ To perform an object dump and save the output to a file.
 ```zsh
 arm-none-eabi-objdump -D -b binary -marm build/secondblink.elf > logs/secondblink
 ```
+
+### Forward looking
+
+#### User flashing of devices
+
+- Users' ability to flash devices using Docker and Vagrant is somewhat described [here](https://developer.hashicorp.com/vagrant/docs/providers/docker)
+- Another point of view is presented [here](https://www.beningo.com/using-docker-to-setup-an-stm32-build-environment/)
 

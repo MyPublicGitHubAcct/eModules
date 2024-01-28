@@ -89,7 +89,31 @@ targets : prerequisites
    command
 ```
 
+.PHONY is used to tell make that the command will not create a file of the same name as the target.
+
+For example, this tells make that it is not making a file called "clean".
+
+```zsh
+.PHONY: clean
+```
+
+Some odd symbols are used in makefiles. For example,
+
+```makefile
+all: library.cpp main.cpp
+```
+- $@ evaluates to all
+- $< evaluates to library.cpp
+- $^ evaluates to library.cpp main.cpp
+
 ## To run the executable
 ```shell
 ./main
 ```
+
+## Unit testing
+
+The Criterion framework is used in this example.
+
+## Sources
+- https://earthly.dev/blog/make-flags/

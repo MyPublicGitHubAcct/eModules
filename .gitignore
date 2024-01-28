@@ -83,7 +83,7 @@ nbproject/
 cmake-build-debug/**
 
 # make
-/build
+/build/**
 /dist
 
 # python
