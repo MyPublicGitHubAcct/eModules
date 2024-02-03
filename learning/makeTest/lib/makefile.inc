@@ -1,39 +1,11 @@
 # https://gist.github.com/zobayer1/7265c698d1b024bb7723bc624aeedeb3
 
 # ------------------------------------------------------------------------------
-# Files and directories
+# SETTINGS
 # ------------------------------------------------------------------------------
 
-SRC            = src
-LIB            = lib
-DRV            = drivers
-
-BUILD          = build
-OBJ            = obj
-BIN            = bin
-
-CC             = clang
-CXX            = clang++
-REMOVE         = rm -r
-
-CFLAGS         = -g -Wall -v
-
-OBJS = fun.o main.o
-
-all: main
-
-main: $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $@
-
-%.o: src/%.c drivers/%.c
-	$(CC) $(CFLAGS) -c $< -o $@
-
-clean:
-	rm -r main
-
-.PHONY: all clean
-
-
+CC             = gcc
+CXX            = g++
 
 # ------------------------------------------------------------------------------
 # Files and directories for the user code
@@ -54,6 +26,9 @@ clean:
 # ------------------------------------------------------------------------------
 # Source compiling and dependency analysis
 # ------------------------------------------------------------------------------
+
+build:
+	$(CC) main.c -o makeTest
 
 # ------------------------------------------------------------------------------
 # Object file conversion
@@ -79,15 +54,27 @@ clean:
 # Firmware flashing
 # ------------------------------------------------------------------------------
 
+# ------------------------------------------------------------------------------
+# Cleaning up
+# ------------------------------------------------------------------------------
+
+clean:
+	rm -R $(TARGET)
 
 # ------------------------------------------------------------------------------
-# from the simple version, here to test initially if this file was included
+# Other
+# ------------------------------------------------------------------------------
+
+.PHONY: build clean
+
+# ------------------------------------------------------------------------------
+# from the simple version
 # ------------------------------------------------------------------------------
 
 # build:
-# 	g++ src/main.cpp -o main
+# 	gcc main.c -o makeTest
 
 # clean:
-# 	rm -R main
+# 	rm -R makeTest
 
 # .PHONY: build clean
